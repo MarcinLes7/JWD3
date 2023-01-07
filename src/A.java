@@ -1,18 +1,33 @@
 public class A {
-
-    void show() {
-        System.out.println("A");
+    public A() {
+        super();
+        System.out.println("Działa konstruktor A()");
     }
+
+    public A(String param) {
+        System.out.println("Działa konstruktor A(" + param + ")");
+    }
+
+
 }
 
 class B extends A {
-        void show() {
-            System.out.println("B");
-        }
-
-    public static void main(String[] args) {
-        A a = new A();
-        a.show();
+    public B() {
+        super(); //działa dyskretnie i musi być pierwszy
+        System.out.println("Działa konstruktor B()");
     }
 
+    public B(String param) {
+        super(param);
+        System.out.println("Działa konstruktor B(" + param + ")");
+    }
+
+
+
+}
+
+class Test {
+    public static void main(String[] args) {
+        B b = new B("test");
+    }
 }
